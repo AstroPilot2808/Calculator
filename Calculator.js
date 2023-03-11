@@ -90,6 +90,7 @@ class Calculator {
   
   
   const numberButtons = document.querySelectorAll('[data-number]')
+  const piButton = document.querySelectorAll('[data-pi]')
   const operationButtons = document.querySelectorAll('[data-operation]')
   const equalsButton = document.querySelector('[data-equals]')
   const deleteButton = document.querySelector('[data-delete]')
@@ -102,6 +103,12 @@ class Calculator {
   numberButtons.forEach(button => {
     button.addEventListener('click', () => {
       calculator.appendNumber(button.innerText)
+      calculator.updateDisplay()
+    })
+  })
+  piButton.forEach(button => {
+    button.addEventListener('click', () => {
+      calculator.appendNumber(3.14159265359)
       calculator.updateDisplay()
     })
   })
@@ -130,10 +137,15 @@ class Calculator {
   
   document.addEventListener('keydown', function (event) {
     let patternForNumbers = /[0-9]/g;
-    let patternForOperators = /[+\-*\/]/g
+    let patternForOperators = /[+\-*^\/]/g
     if (event.key.match(patternForNumbers)) {
       event.preventDefault();
       calculator.appendNumber(event.key)
+      calculator.updateDisplay()
+    }
+    if (event.key === 'p' || event.key === 'P') {
+      event.preventDefault();
+      calculator.appendNumber(3.14159265359)
       calculator.updateDisplay()
     }
     if (event.key === '.') {
