@@ -22,7 +22,7 @@ body{
     cursor: pointer;
     border-radius: 10%;
     font-size: 2rem;
-    border: 2px, solid orange;
+    color: black;
     outline: none;
     background-color: red;
     margin-bottom: 150px;
@@ -32,10 +32,6 @@ body{
     background-color:black;
     color: red;
     font-size: 2.8rem;
-}
-.span-two{
-    grid-column: span 2;
-    color:darkblue;
 }
 .output{
     grid-column: 1 / -1;
