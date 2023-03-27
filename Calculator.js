@@ -54,7 +54,8 @@ class Calculator {
         default:
           return
       }
-      this.currentOperand = computation
+      // Rounding to 10 digits
+      this.currentOperand = computation.toPrecision(10)
       this.operation = undefined
       this.previousOperand = ''
     }
